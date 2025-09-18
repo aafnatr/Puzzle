@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Pixel Puzzles – Challenge Generator</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #0f0f0f, #1a1a1a);
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    h1 {
+      font-size: 2rem;
+      margin-bottom: 20px;
+      color: #ffcc00;
+    }
+
+    button {
+      padding: 12px 24px;
+      font-size: 1.2rem;
+      font-weight: bold;
+      border: none;
+      border-radius: 8px;
+      background: #ffcc00;
+      color: #111;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    button:hover {
+      background: #ffaa00;
+    }
+
+    #result {
+      margin-top: 30px;
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #0f0;
+      text-align: center;
+      max-width: 80%;
+      line-height: 1.4;
+    }
+  </style>
+</head>
+<body>
+  <h1>🎴 Pixel Puzzles – Challenge Cards</h1>
+  <button onclick="showChallenge()">✨ Get Challenge</button>
+  <div id="result"></div>
+
+  <script>
+    const challenges = [
+      "Must include an animal",
+      "Must include a mythical creature",
+      "Must be set in space",
+      "Must include an underwater scene",
+      "Must add a steampunk element",
+      "Must be in anime style",
+      "Must include a famous landmark",
+      "Must feature a festival",
+      "Must include two opposites (e.g., fire + ice)",
+      "Must be described as a painting",
+      "Must be in black and white",
+      "Must feature floating islands",
+      "Must involve giant objects",
+      "Must include miniature people",
+      "Must include time travel",
+      "Must be in pixel art style",
+      "Must include a glitch effect",
+      "Must reference a season",
+      "Must feature a portal",
+      "Must include robots",
+      "Must mix nature + technology",
+      "Must include a dragon",
+      "Must be in the future",
+      "Must be in the past",
+      "Must include floating lights",
+      "Must look like a comic book panel",
+      "Must include two suns or moons",
+      "Must feature shattered glass",
+      "Must be in low-poly 3D style",
+      "Must include ancient ruins",
+      "Must feature a giant clock",
+      "Must be in neon cyberpunk style",
+      "Must include mirror reflections",
+      "Must include magical spells",
+      "Must include a storm or natural disaster",
+      "Must be cartoonish",
+      "Must include a carnival or circus",
+      "Must feature a maze",
+      "Must be in silhouette style",
+      "Must include floating text in the sky",
+      "Must include a giant animal in a city",
+      "Must feature a futuristic vehicle",
+      "Must be underwater + glowing",
+      "Must look like a stained-glass artwork",
+      "Must feature infinite stairs",
+      "Must include a surreal element",
+      "Must include crystals or gems",
+      "Must show contrast between rich and poor worlds",
+      "Must include a magical door",
+      "Must be in retro 80s neon style"
+    ];
+
+    function showChallenge() {
+      const randomIndex = Math.floor(Math.random() * challenges.length);
+      document.getElementById("result").innerText = "Challenge: " + challenges[randomIndex];
+    }
+  </script>
+</body>
+</html>
