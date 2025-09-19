@@ -2,10 +2,14 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Pixel Puzzles – Challenge Generator</title>
+  <!-- Google Font for modern typography -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
   <style>
+    /* Global Styles */
     body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      font-family: 'Poppins', sans-serif;
       background: linear-gradient(135deg, #0f0f0f, #1a1a1a);
       color: #fff;
       display: flex;
@@ -14,46 +18,175 @@
       justify-content: center;
       height: 100vh;
       margin: 0;
+      overflow: hidden;
+      background-size: 400% 400%;
+      animation: gradientAnimation 10s ease infinite;
+    }
+
+    /* Gradient Animation */
+    @keyframes gradientAnimation {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
     }
 
     h1 {
-      font-size: 2rem;
-      margin-bottom: 20px;
+      font-size: 3rem;
+      margin-bottom: 30px;
       color: #ffcc00;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+      letter-spacing: 2px;
+      font-weight: 600;
     }
 
-    button {
-      padding: 12px 24px;
+    /* Scrollable Challenges Section */
+    .challenges-container {
+      width: 80%;
+      max-height: 60vh;
+      overflow-y: auto;
+      margin-bottom: 30px;
+      border: 2px solid #ffcc00;
+      border-radius: 10px;
+      padding: 20px;
+      background-color: rgba(0, 0, 0, 0.5);
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    }
+
+    .challenge-item {
       font-size: 1.2rem;
-      font-weight: bold;
-      border: none;
+      padding: 12px;
+      border: 1px solid #333;
+      margin-bottom: 10px;
+      background-color: rgba(255, 255, 255, 0.1);
       border-radius: 8px;
+      transition: background-color 0.3s ease, transform 0.3s ease;
+    }
+
+    .challenge-item:hover {
+      background-color: rgba(255, 255, 255, 0.2);
+      transform: scale(1.05);
+    }
+
+    /* Button Styling */
+    button {
+      padding: 15px 30px;
+      font-size: 1.5rem;
+      font-weight: 600;
+      border: none;
+      border-radius: 10px;
       background: #ffcc00;
       color: #111;
       cursor: pointer;
-      transition: 0.3s;
+      transition: 0.3s ease;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+      display: flex;
+      align-items: center;
+      gap: 10px;
     }
 
     button:hover {
       background: #ffaa00;
+      box-shadow: 0 5px 25px rgba(0, 0, 0, 0.3);
+      transform: translateY(-5px);
     }
 
+    /* Adding an icon to the button */
+    button::before {
+      content: "✨";
+      font-size: 2rem;
+    }
+
+    /* Challenge Display Section */
     #result {
       margin-top: 30px;
-      font-size: 1.5rem;
-      font-weight: bold;
-      color: #0f0;
+      font-size: 2rem;
+      font-weight: 700;
+      color: #00ff00;
       text-align: center;
       max-width: 80%;
       line-height: 1.4;
+      transition: opacity 0.5s ease-in-out;
+      opacity: 0;
+    }
+
+    /* Fade in the result */
+    #result.show {
+      opacity: 1;
+    }
+
+    /* Add a subtle scale effect to the result text */
+    #result {
+      transform: scale(0.8);
+    }
+
+    #result.show {
+      transform: scale(1);
     }
   </style>
 </head>
 <body>
   <h1>🎴 Pixel Puzzles – Challenge Cards</h1>
-  <button onclick="showChallenge()">✨ Get Challenge</button>
+  
+  <!-- Challenge Display Section -->
   <div id="result"></div>
 
+  <!-- Scrollable Challenge List -->
+  <div class="challenges-container">
+    <div class="challenge-item">Must include an animal</div>
+    <div class="challenge-item">Must include a mythical creature</div>
+    <div class="challenge-item">Must be set in space</div>
+    <div class="challenge-item">Must include an underwater scene</div>
+    <div class="challenge-item">Must add a steampunk element</div>
+    <div class="challenge-item">Must be in anime style</div>
+    <div class="challenge-item">Must include a famous landmark</div>
+    <div class="challenge-item">Must feature a festival</div>
+    <div class="challenge-item">Must include two opposites (e.g., fire + ice)</div>
+    <div class="challenge-item">Must be described as a painting</div>
+    <div class="challenge-item">Must be in black and white</div>
+    <div class="challenge-item">Must feature floating islands</div>
+    <div class="challenge-item">Must involve giant objects</div>
+    <div class="challenge-item">Must include miniature people</div>
+    <div class="challenge-item">Must include time travel</div>
+    <div class="challenge-item">Must be in pixel art style</div>
+    <div class="challenge-item">Must include a glitch effect</div>
+    <div class="challenge-item">Must reference a season</div>
+    <div class="challenge-item">Must feature a portal</div>
+    <div class="challenge-item">Must include robots</div>
+    <div class="challenge-item">Must mix nature + technology</div>
+    <div class="challenge-item">Must include a dragon</div>
+    <div class="challenge-item">Must be in the future</div>
+    <div class="challenge-item">Must be in the past</div>
+    <div class="challenge-item">Must include floating lights</div>
+    <div class="challenge-item">Must look like a comic book panel</div>
+    <div class="challenge-item">Must include two suns or moons</div>
+    <div class="challenge-item">Must feature shattered glass</div>
+    <div class="challenge-item">Must be in low-poly 3D style</div>
+    <div class="challenge-item">Must include ancient ruins</div>
+    <div class="challenge-item">Must feature a giant clock</div>
+    <div class="challenge-item">Must be in neon cyberpunk style</div>
+    <div class="challenge-item">Must include mirror reflections</div>
+    <div class="challenge-item">Must include magical spells</div>
+    <div class="challenge-item">Must include a storm or natural disaster</div>
+    <div class="challenge-item">Must be cartoonish</div>
+    <div class="challenge-item">Must include a carnival or circus</div>
+    <div class="challenge-item">Must feature a maze</div>
+    <div class="challenge-item">Must be in silhouette style</div>
+    <div class="challenge-item">Must include floating text in the sky</div>
+    <div class="challenge-item">Must include a giant animal in a city</div>
+    <div class="challenge-item">Must feature a futuristic vehicle</div>
+    <div class="challenge-item">Must be underwater + glowing</div>
+    <div class="challenge-item">Must look like a stained-glass artwork</div>
+    <div class="challenge-item">Must feature infinite stairs</div>
+    <div class="challenge-item">Must include a surreal element</div>
+    <div class="challenge-item">Must include crystals or gems</div>
+    <div class="challenge-item">Must show contrast between rich and poor worlds</div>
+    <div class="challenge-item">Must include a magical door</div>
+    <div class="challenge-item">Must be in retro 80s neon style</div>
+  </div>
+
+  <!-- Button to Select Random Challenge -->
+  <button onclick="showChallenge()">✨ Get Challenge</button>
+  
   <script>
     const challenges = [
       "Must include an animal",
@@ -110,7 +243,14 @@
 
     function showChallenge() {
       const randomIndex = Math.floor(Math.random() * challenges.length);
-      document.getElementById("result").innerText = "Challenge: " + challenges[randomIndex];
+      const resultElement = document.getElementById("result");
+
+      // Display result with animation
+      resultElement.classList.remove("show");
+      setTimeout(() => {
+        resultElement.innerText = "Challenge: " + challenges[randomIndex];
+        resultElement.classList.add("show");
+      }, 200);
     }
   </script>
 </body>
